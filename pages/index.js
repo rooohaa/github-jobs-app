@@ -1,5 +1,11 @@
+import { Layout } from '../app/components'
+
 const MainPage = () => {
-   return <h1>Main page</h1>
+   return (
+      <Layout>
+         <h1>Main page</h1>
+      </Layout>
+   )
 }
 
 export default MainPage
