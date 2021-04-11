@@ -8,4 +8,11 @@ export const MainWrapper = styled.main`
       display: flex;
       align-items: flex-start;
    }
+
+   div.wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+   }
 `;
