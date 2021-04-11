@@ -1,1 +1,3 @@
-export { MainPageComponent } from './MainPageComponent'
+// For named exports!
+
+export { MainPageComponent } from './MainPageComponent';
