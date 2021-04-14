@@ -7,6 +7,11 @@ export const MainWrapper = styled.main`
       margin-top: 42px;
       display: flex;
       align-items: flex-start;
+
+      h3 {
+         color: #334680;
+         font-size: 16px;
+      }
    }
 
    div.wrapper {

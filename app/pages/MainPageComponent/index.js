@@ -8,29 +8,42 @@ import { Pagination } from '../../components';
 import { Container } from '../../sc/Container';
 import { MainWrapper } from './style';
 
+import { searchBy } from '../../utils';
+
 const MainPageComponent = ({ data }) => {
    const [jobs, setJobs] = useState(data);
    const [currentPage, setCurrentPage] = useState(1);
-   const [jobsPerPage, setJobsPerPage] = useState(5);
+   const [keyword, setKeyword] = useState('');
+   const [jobsPerPage] = useState(5);
 
    const { firstJob, lastJob } = getRange(currentPage, jobsPerPage);
-   const currentJobs = jobs.slice(firstJob, lastJob);
+
+   const searched = searchBy(jobs, keyword);
+   const currentJobs = searched.slice(firstJob, lastJob);
+
+   const search = (keyword) => {
+      setKeyword(keyword);
+   };
 
    return (
       <MainWrapper>
          <Container>
-            <SearchBar />
+            <SearchBar onSearch={search} />
             <main className="main-area">
                <FilterBlock />
-               <div className="wrapper">
-                  <JobList jobs={currentJobs} />
-                  <Pagination
-                     jobsPerPage={jobsPerPage}
-                     totalJobs={jobs.length}
-                     currentPage={currentPage}
-                     paginate={(page) => setCurrentPage(page)}
-                  />
-               </div>
+               {searched.length > 0 ? (
+                  <div className="wrapper">
+                     <JobList jobs={currentJobs} />
+                     <Pagination
+                        jobsPerPage={jobsPerPage}
+                        totalJobs={searched.length}
+                        currentPage={currentPage}
+                        paginate={(page) => setCurrentPage(page)}
+                     />
+                  </div>
+               ) : (
+                  <h3>No jobs found...</h3>
+               )}
             </main>
          </Container>
       </MainWrapper>

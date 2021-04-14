@@ -11,6 +11,7 @@ const JobCard = ({
    time,
 }) => {
    const createdAt = getDays(time);
+   const date = createdAt === 0 ? 'today' : `${createdAt} days ago`;
 
    return (
       <CardWrapper>
@@ -31,7 +32,7 @@ const JobCard = ({
 
             <div>
                <i className="far fa-clock"></i>
-               <span>{createdAt} days ago</span>
+               <span>{date}</span>
             </div>
          </div>
       </CardWrapper>
