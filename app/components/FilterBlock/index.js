@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 
 import { FilterWrapper } from './style';
 
-const FilterBlock = () => {
+const FilterBlock = ({ onCheck }) => {
    const [city, setCity] = useState('');
    const [inputValue, setInputValue] = useState('');
    const [isFullTime, setIsFullTime] = useState(false);
+
+   const handleChange = (e) => {
+      setIsFullTime(e.target.checked);
+
+      onCheck(e.target.checked);
+   };
 
    return (
       <FilterWrapper>
@@ -14,7 +20,7 @@ const FilterBlock = () => {
                type="checkbox"
                id="fulltime"
                value={isFullTime}
-               onChange={(e) => setIsFullTime(e.target.checked)}
+               onChange={handleChange}
             />
             <label htmlFor="fulltime">Full time</label>
          </div>

@@ -1,4 +1,10 @@
-export const searchBy = (list, keyword) => {
+export const searchBy = (list, keyword, fullTime) => {
+   if (fullTime) {
+      list = list.filter(
+         (item) => item.type.toLowerCase().trim() === 'full time'
+      );
+   }
+
    return list.filter(
       (item) =>
          item.company

@@ -12,14 +12,15 @@ import { searchBy } from '../../utils';
 
 const MainPageComponent = ({ data }) => {
    const [jobs, setJobs] = useState(data);
-   const [currentPage, setCurrentPage] = useState(1);
    const [keyword, setKeyword] = useState('');
+   const [fullTime, setFullTime] = useState(false);
+   const [currentPage, setCurrentPage] = useState(1);
    const [jobsPerPage] = useState(5);
 
    const { firstJob, lastJob } = getRange(currentPage, jobsPerPage);
 
-   const searched = searchBy(jobs, keyword);
-   const currentJobs = searched.slice(firstJob, lastJob);
+   const filtered = searchBy(jobs, keyword, fullTime);
+   const currentJobs = filtered.slice(firstJob, lastJob);
 
    const search = (keyword) => {
       setKeyword(keyword);
@@ -30,13 +31,13 @@ const MainPageComponent = ({ data }) => {
          <Container>
             <SearchBar onSearch={search} />
             <main className="main-area">
-               <FilterBlock />
-               {searched.length > 0 ? (
+               <FilterBlock onCheck={(value) => setFullTime(value)} />
+               {filtered.length > 0 ? (
                   <div className="wrapper">
                      <JobList jobs={currentJobs} />
                      <Pagination
                         jobsPerPage={jobsPerPage}
-                        totalJobs={searched.length}
+                        totalJobs={filtered.length}
                         currentPage={currentPage}
                         paginate={(page) => setCurrentPage(page)}
                      />
