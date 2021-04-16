@@ -70,4 +70,23 @@ export const FilterWrapper = styled.section`
          }
       }
    }
+
+   button.reset-btn {
+      padding: 5px 10px;
+      color: #fff;
+      background-color: #1e86ff;
+      border: none;
+      border-radius: 4px;
+      font-family: 'Poppins', sans-serif;
+      margin-top: 10px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+         border: 1px solid #1e86ff;
+         background-color: #fff;
+         color: #1e86ff;
+      }
+   }
 `;

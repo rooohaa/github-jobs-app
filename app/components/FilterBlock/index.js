@@ -1,16 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { FilterWrapper } from './style';
 
-const FilterBlock = ({ onCheck }) => {
+const FilterBlock = ({ onCheck, onCityCheck }) => {
    const [city, setCity] = useState('');
    const [inputValue, setInputValue] = useState('');
    const [isFullTime, setIsFullTime] = useState(false);
+
+   useEffect(() => {
+      onCityCheck(city);
+   }, [city]);
 
    const handleChange = (e) => {
       setIsFullTime(e.target.checked);
 
       onCheck(e.target.checked);
+   };
+
+   const resetFields = () => {
+      setCity('');
    };
 
    return (
@@ -82,6 +90,10 @@ const FilterBlock = ({ onCheck }) => {
                <label htmlFor="berlin">Berlin</label>
             </div>
          </div>
+
+         <button className="reset-btn" onClick={resetFields}>
+            Reset
+         </button>
       </FilterWrapper>
    );
 };
