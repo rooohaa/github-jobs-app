@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const CardWrapper = styled.div`
    width: 100%;
@@ -12,6 +12,14 @@ export const CardWrapper = styled.div`
    display: flex;
    justify-content: space-between;
    align-items: flex-end;
+
+   cursor: pointer;
+   transition: all 0.3s ease;
+
+   &:hover {
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      transform: translateY(-2px);
+   }
 
    div.wrap {
       display: flex;
@@ -96,4 +104,4 @@ export const CardWrapper = styled.div`
          }
       }
    }
-`;
+`

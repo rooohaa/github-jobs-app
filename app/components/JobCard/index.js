@@ -1,8 +1,10 @@
-import React from 'react';
+import React from 'react'
 
-import { CardWrapper } from './style';
+import { Router, useRouter } from 'next/router'
+import { CardWrapper } from './style'
 
 const JobCard = ({
+   id,
    logoPath,
    companyName,
    jobPosition,
@@ -10,11 +12,13 @@ const JobCard = ({
    location,
    time,
 }) => {
-   const createdAt = getDays(time);
-   const date = createdAt === 0 ? 'today' : `${createdAt} days ago`;
+   const router = useRouter()
+
+   const createdAt = getDays(time)
+   const date = createdAt === 0 ? 'today' : `${createdAt} days ago`
 
    return (
-      <CardWrapper>
+      <CardWrapper onClick={() => router.push(`/${id}`)}>
          <div className="wrap">
             <img src={logoPath || '/images/404.png'} alt="Company logo" />
             <div className="info">
@@ -36,17 +40,17 @@ const JobCard = ({
             </div>
          </div>
       </CardWrapper>
-   );
-};
+   )
+}
 
-export { JobCard };
+export { JobCard }
 
 function getDays(time) {
-   const today = new Date();
-   const createdAt = new Date(time);
+   const today = new Date()
+   const createdAt = new Date(time)
 
-   const diff = today.getTime() - createdAt.getTime();
-   const days = Math.round(diff / (1000 * 60 * 60 * 24));
+   const diff = today.getTime() - createdAt.getTime()
+   const days = Math.round(diff / (1000 * 60 * 60 * 24))
 
-   return days;
+   return days
 }

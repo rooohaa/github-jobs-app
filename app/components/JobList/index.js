@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import { JobCard } from '../JobCard';
+import { JobCard } from '../JobCard'
 
 const JobList = ({ jobs }) => {
    return (
@@ -17,6 +17,7 @@ const JobList = ({ jobs }) => {
             }) => (
                <JobCard
                   key={id}
+                  id={id}
                   companyName={company}
                   jobPosition={title}
                   logoPath={company_logo}
@@ -27,7 +28,7 @@ const JobList = ({ jobs }) => {
             )
          )}
       </ul>
-   );
-};
+   )
+}
 
-export { JobList };
+export { JobList }
