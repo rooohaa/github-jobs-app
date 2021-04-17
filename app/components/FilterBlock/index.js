@@ -1,25 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
-import { FilterWrapper } from './style';
+import { FilterWrapper } from './style'
 
-const FilterBlock = ({ onCheck, onCityCheck }) => {
-   const [city, setCity] = useState('');
-   const [inputValue, setInputValue] = useState('');
-   const [isFullTime, setIsFullTime] = useState(false);
+const FilterBlock = ({ onCheck, onCityCheck, onInput }) => {
+   const [city, setCity] = useState('')
+   const [inputValue, setInputValue] = useState('')
+   const [isFullTime, setIsFullTime] = useState(false)
 
    useEffect(() => {
-      onCityCheck(city);
-   }, [city]);
+      onCityCheck(city)
+   }, [city])
+
+   useEffect(() => {
+      onInput(inputValue)
+   }, [inputValue])
 
    const handleChange = (e) => {
-      setIsFullTime(e.target.checked);
+      setIsFullTime(e.target.checked)
 
-      onCheck(e.target.checked);
-   };
+      onCheck(e.target.checked)
+   }
 
    const resetFields = () => {
-      setCity('');
-   };
+      setCity('')
+   }
 
    return (
       <FilterWrapper>
@@ -40,7 +44,7 @@ const FilterBlock = ({ onCheck, onCityCheck }) => {
                id="location"
                value={inputValue}
                onChange={(e) => setInputValue(e.target.value)}
-               placeholder="City, state, zip code or country"
+               placeholder="City, state, or country"
             />
             <i className="fas fa-globe-americas"></i>
          </div>
@@ -95,7 +99,7 @@ const FilterBlock = ({ onCheck, onCityCheck }) => {
             Reset
          </button>
       </FilterWrapper>
-   );
-};
+   )
+}
 
-export { FilterBlock };
+export { FilterBlock }

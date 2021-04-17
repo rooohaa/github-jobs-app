@@ -1,44 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
-import { SearchBar } from '../../components';
-import { FilterBlock } from '../../components';
-import { JobList } from '../../components';
-import { Pagination } from '../../components';
+import { SearchBar } from '../../components'
+import { FilterBlock } from '../../components'
+import { JobList } from '../../components'
+import { Pagination } from '../../components'
 
-import { Container } from '../../sc/Container';
-import { MainWrapper } from './style';
+import { Container } from '../../sc/Container'
+import { MainWrapper } from './style'
 
-import { searchBy } from '../../utils';
+import { searchBy } from '../../utils'
 
 const MainPageComponent = ({ data }) => {
-   const [jobs, setJobs] = useState(data);
+   const [jobs, setJobs] = useState(data)
 
    // for filtering
-   const [keyword, setKeyword] = useState('');
-   const [fullTime, setFullTime] = useState(false);
-   const [city, setCity] = useState('');
+   const [keyword, setKeyword] = useState('')
+   const [fullTime, setFullTime] = useState(false)
+   const [city, setCity] = useState('')
+   const [location, setLocation] = useState('')
 
    // for pagination
-   const [currentPage, setCurrentPage] = useState(1);
-   const [jobsPerPage] = useState(5);
+   const [currentPage, setCurrentPage] = useState(1)
+   const [jobsPerPage] = useState(5)
 
-   const { firstJob, lastJob } = getRange(currentPage, jobsPerPage);
+   const { firstJob, lastJob } = getRange(currentPage, jobsPerPage)
 
-   const filtered = searchBy(jobs, keyword, fullTime, city);
-   const currentJobs = filtered.slice(firstJob, lastJob);
-
-   const search = (keyword) => {
-      setKeyword(keyword);
-   };
+   const filtered = searchBy(jobs, keyword, fullTime, city, location)
+   const currentJobs = filtered.slice(firstJob, lastJob)
 
    return (
       <MainWrapper>
          <Container>
-            <SearchBar onSearch={search} />
+            <SearchBar onSearch={(keyword) => setKeyword(keyword)} />
             <main className="main-area">
                <FilterBlock
                   onCityCheck={(city) => setCity(city)}
                   onCheck={(value) => setFullTime(value)}
+                  onInput={(value) => setLocation(value)}
                />
                {filtered.length > 0 ? (
                   <div className="wrapper">
@@ -56,14 +54,14 @@ const MainPageComponent = ({ data }) => {
             </main>
          </Container>
       </MainWrapper>
-   );
-};
+   )
+}
 
-export { MainPageComponent };
+export { MainPageComponent }
 
 function getRange(currentPage, jobsPerPage) {
-   const lastJob = currentPage * jobsPerPage;
-   const firstJob = lastJob - jobsPerPage;
+   const lastJob = currentPage * jobsPerPage
+   const firstJob = lastJob - jobsPerPage
 
-   return { firstJob, lastJob };
+   return { firstJob, lastJob }
 }
