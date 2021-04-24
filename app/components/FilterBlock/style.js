@@ -1,8 +1,13 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const FilterWrapper = styled.section`
    margin-right: 45px;
    padding: 5px;
+
+   @media screen and (max-width: 576px) {
+      margin-bottom: 20px;
+      width: 100%;
+   }
 
    div.form-control {
       display: flex;
@@ -65,6 +70,10 @@ export const FilterWrapper = styled.section`
          font-size: 12px;
          line-height: 14px;
 
+         @media screen and (max-width: 576px) {
+            width: 100%;
+         }
+
          &::placeholder {
             color: #b9bdcf;
          }
@@ -89,4 +98,4 @@ export const FilterWrapper = styled.section`
          color: #1e86ff;
       }
    }
-`;
+`

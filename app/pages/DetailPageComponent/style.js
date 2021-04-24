@@ -8,11 +8,22 @@ export const DetailsWrapper = styled.section`
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
+
+      @media screen and (max-width: 576px) {
+         flex-direction: column;
+         align-items: flex-start;
+      }
    }
 
    div.sidebar {
       width: 260px;
       overflow: hidden;
+
+      @media screen and (max-width: 576px) {
+         width: 100%;
+         margin-bottom: 20px;
+      }
+
       a,
       i {
          color: #1e86ff;
@@ -55,16 +66,32 @@ export const DetailsWrapper = styled.section`
       margin-left: 70px;
       width: 800px;
 
+      @media screen and (max-width: 576px) {
+         width: 100%;
+         margin-left: 0;
+         padding: 0;
+      }
+
       div.head {
          display: flex;
          align-items: center;
          margin-bottom: 10px;
+
+         @media screen and (max-width: 576px) {
+            flex-direction: column;
+            align-items: flex-start;
+         }
 
          h2 {
             font-size: 24px;
             line-height: 28px;
             color: #334680;
             margin-right: 18px;
+
+            @media screen and (max-width: 576px) {
+               margin-right: 0;
+               margin-bottom: 10px;
+            }
          }
 
          & > div {

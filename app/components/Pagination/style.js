@@ -1,12 +1,20 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Nav = styled.nav`
    ul {
       display: flex;
       align-items: center;
 
+      @media screen and (max-width: 576px) {
+         flex-wrap: wrap;
+      }
+
       li {
          margin-right: 12px;
+
+         @media screen and (max-width: 576px) {
+            margin-bottom: 12px;
+         }
 
          &:last-child {
             margin-right: 0;
@@ -51,4 +59,4 @@ export const Nav = styled.nav`
          color: #1e86ff;
       }
    }
-`;
+`

@@ -6,4 +6,8 @@ export const Container = styled.div`
    overflow: hidden;
    padding: 0 10px;
    height: 100%;
+
+   @media screen and (max-width: 576px) {
+      padding: 0 15px;
+   }
 `

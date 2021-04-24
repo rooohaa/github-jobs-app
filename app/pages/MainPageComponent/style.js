@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const MainWrapper = styled.main`
    padding-bottom: 150px;
@@ -7,6 +7,10 @@ export const MainWrapper = styled.main`
       margin-top: 42px;
       display: flex;
       align-items: flex-start;
+
+      @media screen and (max-width: 576px) {
+         flex-direction: column;
+      }
 
       h3 {
          color: #334680;
@@ -20,4 +24,4 @@ export const MainWrapper = styled.main`
       flex-direction: column;
       align-items: flex-end;
    }
-`;
+`

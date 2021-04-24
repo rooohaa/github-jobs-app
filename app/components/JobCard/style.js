@@ -16,6 +16,12 @@ export const CardWrapper = styled.div`
    cursor: pointer;
    transition: all 0.3s ease;
 
+   @media screen and (max-width: 576px) {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 7px;
+   }
+
    &:hover {
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       transform: translateY(-2px);
@@ -26,6 +32,11 @@ export const CardWrapper = styled.div`
       align-items: center;
       padding: 4px;
       max-width: 490px;
+
+      @media screen and (max-width: 576px) {
+         width: 100%;
+         margin-bottom: 12px;
+      }
 
       img {
          width: 90px;
@@ -54,6 +65,11 @@ export const CardWrapper = styled.div`
 
             display: block;
             margin-bottom: 12px;
+
+            @media screen and (max-width: 576px) {
+               max-height: 20px;
+               overflow: hidden;
+            }
          }
 
          div.type {
@@ -80,6 +96,10 @@ export const CardWrapper = styled.div`
    div.meta {
       display: flex;
       align-items: center;
+
+      @media screen and (max-width: 576px) {
+         align-self: flex-end;
+      }
 
       & > div {
          margin-right: 25px;

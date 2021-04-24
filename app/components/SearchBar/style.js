@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const SearchSection = styled.div`
    width: 100%;
@@ -16,6 +16,10 @@ export const SearchSection = styled.div`
 
    form {
       width: 790px;
+
+      @media screen and (max-width: 576px) {
+         width: 90%;
+      }
 
       div.form-control {
          width: 100%;
@@ -35,6 +39,10 @@ export const SearchSection = styled.div`
 
             border: none;
             outline: none;
+
+            @media screen and (max-width: 576px) {
+               font-size: 11px;
+            }
 
             &::placeholder {
                color: #b9bdcf;
@@ -61,6 +69,13 @@ export const SearchSection = styled.div`
             right: 2.7px;
             top: 2.7px;
 
+            @media screen and (max-width: 576px) {
+               padding: 9px 20px;
+               top: 50%;
+               right: 5px;
+               transform: translateY(-50%);
+            }
+
             &:hover {
                background-color: #4798f5;
             }
@@ -76,4 +91,4 @@ export const SearchSection = styled.div`
          }
       }
    }
-`;
+`
