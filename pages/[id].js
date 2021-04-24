@@ -1,8 +1,14 @@
 import React from 'react'
 
+import { DetailsPageComponent } from '../app/pages'
+import { Layout } from '../app/components'
+
 const DetailsPage = ({ jobInfo }) => {
-   console.log(jobInfo)
-   return <div>{JSON.stringify(jobInfo, 2, null)}</div>
+   return (
+      <Layout>
+         <DetailsPageComponent details={jobInfo} />
+      </Layout>
+   )
 }
 
 export default DetailsPage

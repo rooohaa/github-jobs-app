@@ -18,7 +18,7 @@ const MainPageComponent = ({ data }) => {
    const [fullTime, setFullTime] = useState(false)
    const [city, setCity] = useState('')
    const [location, setLocation] = useState('')
-
+   
    // for pagination
    const [currentPage, setCurrentPage] = useState(1)
    const [jobsPerPage] = useState(5)
