@@ -12,13 +12,13 @@ import { searchBy } from '../../utils'
 
 const MainPageComponent = ({ data }) => {
    const [jobs, setJobs] = useState(data)
-
+   console.log(data)
    // for filtering
    const [keyword, setKeyword] = useState('')
    const [fullTime, setFullTime] = useState(false)
    const [city, setCity] = useState('')
    const [location, setLocation] = useState('')
-   
+
    // for pagination
    const [currentPage, setCurrentPage] = useState(1)
    const [jobsPerPage] = useState(5)
